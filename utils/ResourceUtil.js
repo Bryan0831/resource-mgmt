@@ -7,7 +7,7 @@ async function addResource(req, res) {
         const description = req.body.description;
         const owner = req.body.owner;
         const newResource = new Resource(name, location, description, owner);
-        const updatedResources = await writeJSON(newResource, 'utils/Resource.json');
+        const updatedResources = await writeJSON(newResource, 'utils/resources.json');
         return res.status(201).json(updatedResources);
     } catch (error) {
         return res.status(500).json({ message: error.message });
