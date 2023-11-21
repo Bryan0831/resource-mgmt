@@ -1,14 +1,18 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
+
 const fs = require('fs').promises;
 const { register, login } = require('../utils/UserUtil')
+
 describe('Testing Register Function', () => {
     const usersFilePath = 'utils/users.json';
     var orgContent = "";
+
     beforeEach(async () => {
         orgContent = await fs.readFile(usersFilePath, 'utf8');
         orgContent = JSON.parse(orgContent);
     });
+
     afterEach(async () => {
         await fs.writeFile(usersFilePath, JSON.stringify(orgContent), 'utf8');
     });
@@ -33,6 +37,7 @@ describe('Testing Register Function', () => {
         };
         await register(req, res);
     });
+
     it('Should shows validation error due to email', async () => {
         const req = {
             body: {
@@ -51,6 +56,7 @@ describe('Testing Register Function', () => {
         };
         await register(req, res);
     });
+
     it('Should shows validation error due to password length', async () => {
         const req = {
             body: {
@@ -70,6 +76,7 @@ describe('Testing Register Function', () => {
         await register(req, res);
     });
 });
+
 describe('Testing Login Function', () => {
     const usersFilePath = 'utils/users.json';
     var orgContent = "";
