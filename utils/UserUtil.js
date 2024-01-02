@@ -11,6 +11,7 @@ async function readJSON(filename) {
 async function writeJSON(object, filename) {
     try {
         const allObjects = await readJSON(filename);
+        //const allObjects = [...currentObjects]
         allObjects.push(object);
         await fs.writeFile(filename, JSON.stringify(allObjects), 'utf8');
         return allObjects;
