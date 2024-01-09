@@ -15,11 +15,7 @@ html += '<tr>' +
 '<td>' + response[i].description + '</td>' +
 '<td>' + response[i].owner + '</td>' +
 '<td>' +
-'<button type="button" class="btn btn-warning"
-onclick="editResource(\'' + JSON.stringify(response[i]) + '\')">Edit </button> ' +
-'<button type="button" class="btn btn-danger"
-onclick="deleteResource(' + response[i].id + ')"> Delete</button>' +
-'</td>'+'</tr>'
+'<button type="button" class="btn btn-warning" onclick="editResource(\'' + JSON.stringify(response[i]) + '\')">Edit </button> ' + '<button type="button" class="btn btn-danger" onclick="deleteResource(' + response[i].id + ')"> Delete</button>' + '</td>'+'</tr>'
 }
 document.getElementById('tableContent').innerHTML = html;
 };
@@ -52,9 +48,7 @@ document.getElementById("location").value = "";
 document.getElementById("description").value = "";
 }
 else {
-document.getElementById("message").innerHTML = 'Unable to add
-resource!'; document.getElementById("message").setAttribute("class", "text-
-danger");
+document.getElementById("message").innerHTML = 'Unable to add resource!'; document.getElementById("message").setAttribute("class", "text-danger");
 document.getElementById("message").setAttribute("class", "text-danger");
 }
 };
